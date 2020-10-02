@@ -70,9 +70,11 @@ Function InstallVSCodeExt {
 }
 
 function SettingsDotJson {
-    $inFile = "$(PWD)\VSCode\settings.json"
+    $folderPath = "C:\setup-windows10"
+    $inFile = "$folderPath\VSCode\settings.json"
     $outFile = "$env:APPDATA\Code\User\settings.json"
-    Copy-Item -Path $inFile -Destination $outFile -Force
+    Write-Host "Copying from $inFile to $outFile"
+    Copy-Item -Path $inFile -Destination $outFile
 }
 
 Write-Host "Installing VS Code..." -BackgroundColor Magenta -ForegroundColor White

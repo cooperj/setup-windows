@@ -6,16 +6,15 @@
 Write-Host "Configuring User Accounts..." -ForegroundColor Black -BackgroundColor Yellow
 Write-Host "Be Prepared to set Login Passwords and Git Properties" -ForegroundColor Black -BackgroundColor Red
 
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) 
-{ 
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { 
     Write-Host "You didn't run this script as an Administrator. This script will self elevate to run as an Administrator and continue."
     $length = 5
-    for ($i=1; $i -le $length; $i++)  {
+    for ($i = 1; $i -le $length; $i++) {
         $j = $length - $i
         Write-Host "Elevating in $j seconds..." -ForegroundColor white -BackgroundColor darkred
         Start-Sleep 1
-      }
-      Write-Host #ends the line after loop
+    }
+    Write-Host #ends the line after loop
 
 
     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; 
@@ -47,6 +46,7 @@ Function UpdateStandardAccount {
 
 Function UpdateAdminAccount {
     Write-Host "Set a password to use for Administrator Tasks..." -BackgroundColor Cyan -ForegroundColor Black
+    net user Administrator /active:yes
     net user Administrator *    
 }
 

@@ -6,6 +6,8 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 
 ## Warnings
 
+- Ensure you save the Git repo to the `C:` Drive so the exact paths work, e.g. Settings for VS Code should be located at `C:\setup-windows10\VSCode\settings.json`
+
 - If you are downloading as a ZIP from GitHub **make sure to manually download the [Windows10Debloater](https://github.com/Sycnex/Windows10Debloater) submodule** and place the contents into the folder `Windows10Debloater`, you may also have to do this if you are running a `git clone` so check that the files are there before running script `1. Run Windows 10 Debloater`
 
 ## Scripts included
