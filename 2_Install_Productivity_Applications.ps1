@@ -3,6 +3,8 @@
 # by Josh Cooper
 #############################################
 
+Write-Host "Installing Productivity Applications..." -ForegroundColor Black -BackgroundColor Yellow
+
 Function InstallChoco {
     Write-Host "Installing Chocolate for Windows..." -ForegroundColor Green
     Write-Host "------------------------------------" -ForegroundColor Green
