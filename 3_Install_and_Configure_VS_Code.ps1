@@ -5,21 +5,20 @@
 
 Write-Host "Installing and Configuring VS Code..." -ForegroundColor Black -BackgroundColor Yellow
 
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) 
-{ 
-    Write-Host "You didn't run this script as an Administrator. This script will self elevate to run as an Administrator and continue."
-    $length = 5
-    for ($i=1; $i -le $length; $i++)  {
-        $j = $length - $i
-        Write-Host "Elevating in $j seconds..." -ForegroundColor white -BackgroundColor darkred
-        Start-Sleep 1
-      }
-      Write-Host #ends the line after loop
+# if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { 
+#     Write-Host "You didn't run this script as an Administrator. This script will self elevate to run as an Administrator and continue."
+#     $length = 5
+#     for ($i = 1; $i -le $length; $i++) {
+#         $j = $length - $i
+#         Write-Host "Elevating in $j seconds..." -ForegroundColor white -BackgroundColor darkred
+#         Start-Sleep 1
+#     }
+#     Write-Host #ends the line after loop
 
 
-    Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; 
-    exit 
-}
+#     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; 
+#     exit 
+# }
 
 #no errors throughout
 $ErrorActionPreference = 'silentlycontinue'
@@ -36,3 +35,69 @@ Else {
 }
 
 Start-Transcript -OutputDirectory "$LogFolder"
+
+Function InstallChoco {
+    $testchoco = powershell choco -v
+    if (-not($testchoco)) {
+        Write-Output "Seems Chocolatey is not installed, installing now"
+        Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    }
+    else {
+        Write-Output "Chocolatey Version $testchoco is already installed"
+    }
+}
+
+Function InstallVSCode {
+    choco install vscode -y
+}
+
+Function InstallVSCodeExt {
+    $extensions =
+    "akamud.vscode-theme-onedark",
+    "ms-dotnettools.csharp",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "techer.open-in-browser",
+    "esbenp.prettier-vscode",
+    "ms-python.python",
+    "ms-vscode-remote.remote-wsl",
+    "vscode-icons-team.vscode-icons",
+    "coenraads.bracket-pair-colorizer"
+
+    $cmd = "code --list-extensions"
+    Invoke-Expression $cmd -OutVariable output | Out-Null
+    $installed = $output -split "\s"
+
+    foreach ($ext in $extensions) {
+        if ($installed.Contains($ext)) {
+            Write-Host $ext "already installed." -ForegroundColor Gray
+        }
+        else {
+            Write-Host "Installing" $ext "..." -ForegroundColor White
+            code --install-extension $ext
+        }
+    }
+}
+
+function SettingsDotJson {
+    $inFile = "$(PWD)\VSCode\settings.json"
+    $outFile = "$env:APPDATA\Code\User\settings.json"
+    Copy-Item -Path $inFile -Destination $outFile -Force
+}
+
+Write-Host "Installing Choco..." -BackgroundColor Magenta -ForegroundColor White
+InstallChoco
+Start-Sleep 1
+
+Write-Host "Installing VS Code..." -BackgroundColor Magenta -ForegroundColor White
+InstallVSCode
+Start-Sleep 1
+
+Write-Host "Installing VS Code Extensions..." -BackgroundColor Magenta -ForegroundColor White
+InstallVSCodeExt
+Start-Sleep 1
+
+Write-Host "Implement Custom Settings..." -BackgroundColor Magenta -ForegroundColor White
+SettingsDotJson
+Start-Sleep 1
