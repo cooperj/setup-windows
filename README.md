@@ -22,3 +22,4 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 - Set Default Apps
 - Install Office 365
 - Install Adobe CC
+- Login to Apps
