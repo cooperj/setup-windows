@@ -53,6 +53,7 @@ Function InstallAppsWithChoco {
         "sysinternals",
         "notepadplusplus.install",
         "filezilla",
+        "winscp.install",
         "sharex",
         "powertoys",
         "malwarebytes",
