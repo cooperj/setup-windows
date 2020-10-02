@@ -11,10 +11,11 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 ## Scripts included
 
 - [x] 1. Run Windows 10 Debloater
-- [x] 2. Install Productivity Applications
-- [x] 3. Install and Configure VS Code
-- [x] 4. Configure Windows 10 Theme and Power Options
-- [x] 5. Configure User Accounts
+- [x] 2. Install Chocolatey **(Required for Scripts 3 and 4)**
+- [x] 3. Install Productivity Applications
+- [x] 4. Install and Configure VS Code
+- [x] 5. Configure Windows 10 Theme and Power Options
+- [x] 6. Configure User Accounts
 
 ## What is not included
 

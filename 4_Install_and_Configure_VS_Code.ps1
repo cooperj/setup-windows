@@ -36,20 +36,6 @@ Else {
 
 Start-Transcript -OutputDirectory "$LogFolder"
 
-Function InstallChoco {
-    $testchoco = powershell choco -v
-    if(-not($testchoco)) {
-        Write-Output "Seems Chocolatey is not installed, installing now"
-        Write-Host "Installing Chocolate for Windows..." -ForegroundColor Green
-        Write-Host "------------------------------------" -ForegroundColor Green
-        Set-ExecutionPolicy Bypass -Scope Process -Force; 
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    }
-    else {
-        Write-Output "Chocolatey Version $testchoco is already installed"
-    }
-}
-
 Function InstallVSCode {
     choco install vscode -y
 }
@@ -88,10 +74,6 @@ function SettingsDotJson {
     $outFile = "$env:APPDATA\Code\User\settings.json"
     Copy-Item -Path $inFile -Destination $outFile -Force
 }
-
-Write-Host "Installing Choco..." -BackgroundColor Magenta -ForegroundColor White
-InstallChoco
-Start-Sleep 1
 
 Write-Host "Installing VS Code..." -BackgroundColor Magenta -ForegroundColor White
 InstallVSCode

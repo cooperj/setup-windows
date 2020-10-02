@@ -5,16 +5,15 @@
 
 Write-Host "Installing Productivity Applications..." -ForegroundColor Black -BackgroundColor Yellow
 
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) 
-{ 
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { 
     Write-Host "You didn't run this script as an Administrator. This script will self elevate to run as an Administrator and continue."
     $length = 5
-    for ($i=1; $i -le $length; $i++)  {
+    for ($i = 1; $i -le $length; $i++) {
         $j = $length - $i
         Write-Host "Elevating in $j seconds..." -ForegroundColor white -BackgroundColor darkred
         Start-Sleep 1
-      }
-      Write-Host #ends the line after loop
+    }
+    Write-Host #ends the line after loop
 
 
     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; 
@@ -37,20 +36,6 @@ Else {
 
 Start-Transcript -OutputDirectory "$LogFolder"
 
-Function InstallChoco {
-    $testchoco = powershell choco -v
-    if(-not($testchoco)) {
-        Write-Output "Seems Chocolatey is not installed, installing now"
-        Write-Host "Installing Chocolate for Windows..." -ForegroundColor Green
-        Write-Host "------------------------------------" -ForegroundColor Green
-        Set-ExecutionPolicy Bypass -Scope Process -Force; 
-        Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    }
-    else {
-        Write-Output "Chocolatey Version $testchoco is already installed"
-    }
-}
-
 Function InstallAppsWithChoco {
     Write-Host "Installing Applications..."
     $Apps = @(
@@ -58,7 +43,7 @@ Function InstallAppsWithChoco {
         "git",
         "git-lfs",
         "microsoft-edge",
-        "googlechrome",,
+        "googlechrome", ,
         "firefox",
         "vlc",
         "dotnetcore-sdk",
@@ -99,10 +84,6 @@ Function InstallAppsWithChoco {
         choco install $app -y
     }
 }
-
-Write-Host "Installing Choco..." -BackgroundColor Magenta -ForegroundColor White
-InstallChoco
-Start-Sleep 1
 
 Write-Host "Using Choco Install..." -BackgroundColor Magenta -ForegroundColor White
 InstallAppsWithChoco
