@@ -20,3 +20,19 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; 
     exit 
 }
+
+#no errors throughout
+$ErrorActionPreference = 'silentlycontinue'
+
+$LogFolder = "C:\Temp\SetupScripts\ConfigUser"
+If (Test-Path $LogFolder) {
+    Write-Output "$LogFolder exists. Skipping."
+}
+Else {
+    Write-Output "The folder '$LogFolder' doesn't exist. This folder will be used for storing logs created after the script runs. Creating now."
+    Start-Sleep 1
+    New-Item -Path "$LogFolder" -ItemType Directory
+    Write-Output "The folder $LogFolder was successfully created."
+}
+
+Start-Transcript -OutputDirectory "$LogFolder"
