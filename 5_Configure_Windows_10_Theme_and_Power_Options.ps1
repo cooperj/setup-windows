@@ -52,10 +52,22 @@ Function DisableACSleep {
     Powercfg /Change standby-timeout-ac 0
 }
 
+Function RequirePassAftScreenSaver {
+    $ssPath = "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop"
+    If (!(Test-Path $ssPath)) {
+        New-Item $ssPath 
+    }
+    Set-ItemProperty $ssPath ScreenSaverIsSecure -Value 1
+}
+
 Write-Host "Updating Windows Colour Theme..." -BackgroundColor Magenta -ForegroundColor White
 SetColourTheme
 Start-Sleep 1
 
 Write-Host "Setting Power Options..." -BackgroundColor Magenta -ForegroundColor White
 DisableACSleep
+Start-Sleep 1
+
+Write-Output "Require password after screensaver..."-BackgroundColor Magenta -ForegroundColor White
+RequirePassAftScreenSaver
 Start-Sleep 1

@@ -70,7 +70,7 @@ Function InstallVSCodeExt {
 }
 
 function SettingsDotJson {
-    $folderPath = "C:\setup-windows10"
+    $folderPath = "C:\setup-windows10-main"
     $inFile = "$folderPath\VSCode\settings.json"
     $outFile = "$env:APPDATA\Code\User\settings.json"
     Write-Host "Copying from $inFile to $outFile"
