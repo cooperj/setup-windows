@@ -67,6 +67,7 @@ Function InstallAppsWithChoco {
         "discord",
         "putty.install",
         "wireshark",
+        "winpcap",
         "microsoft-windows-terminal",
         "cpu-z.install",
         "gpu-z",
