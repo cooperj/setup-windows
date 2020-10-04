@@ -42,6 +42,7 @@ Function InstallAppsWithChoco {
         "7zip.install",
         "git",
         "git-lfs",
+        "hashtab",
         "microsoft-edge",
         "googlechrome", ,
         "firefox",
