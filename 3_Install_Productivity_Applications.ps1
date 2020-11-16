@@ -81,7 +81,10 @@ Function InstallAppsWithChoco {
         "itunes",
         "gimp",
         "blender",
-        "pandoc"
+        "pandoc",
+        "rsvg-convert",
+        "python",
+        "miktex"
     )
     
     foreach ($app in $Apps) {
