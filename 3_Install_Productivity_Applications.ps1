@@ -80,7 +80,8 @@ Function InstallAppsWithChoco {
         "arduino",
         "itunes",
         "gimp",
-        "blender"
+        "blender",
+        "pandoc"
     )
     
     foreach ($app in $Apps) {
