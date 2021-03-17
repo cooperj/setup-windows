@@ -1,3 +1,5 @@
+[![Visits Badge](https://badges.pufler.dev/visits/cooperj/setup-windows10)](https://pufler.dev/git-badges/)
+
 # Windows 10 Setup Scripts
 
 Collection of scripts to run on a new computer/clean install.
