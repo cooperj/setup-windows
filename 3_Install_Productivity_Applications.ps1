@@ -83,8 +83,7 @@ Function InstallAppsWithChoco {
         "pandoc",
         "rsvg-convert",
         "python",
-        "miktex",
-        "caffeine"
+        "miktex"
     )
     
     foreach ($app in $Apps) {
