@@ -39,6 +39,7 @@ Start-Transcript -OutputDirectory "$LogFolder"
 Function InstallAppsWithChoco {
     Write-Host "Installing Applications..."
     $Apps = @(
+        "vivaldi",
         "7zip.install",
         "git",
         "git-lfs",
@@ -53,7 +54,6 @@ Function InstallAppsWithChoco {
         "openssl.light",
         "sysinternals",
         "notepadplusplus.install",
-        "filezilla",
         "winscp.install",
         "sharex",
         "powertoys",
@@ -64,7 +64,6 @@ Function InstallAppsWithChoco {
         "audacity-lame",
         "handbrake",
         "qbittorrent", 
-        "adobereader",
         "discord",
         "putty.install",
         "wireshark",
@@ -84,7 +83,8 @@ Function InstallAppsWithChoco {
         "pandoc",
         "rsvg-convert",
         "python",
-        "miktex"
+        "miktex",
+        "caffeine"
     )
     
     foreach ($app in $Apps) {
