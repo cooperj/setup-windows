@@ -1,5 +1,4 @@
 [![Visits Badge](https://badges.pufler.dev/visits/cooperj/setup-windows10)](https://pufler.dev/git-badges/)
-[![Updated Badge](https://badges.pufler.dev/updated/cooperj/setup-windows10)](https://badges.pufler.dev)
 
 # Windows 10 Setup Scripts
 
