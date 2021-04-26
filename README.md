@@ -29,9 +29,9 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 - Install Visual Studio (Full Edition)
 - Install Unity
 - Set Default Apps
-
-### Tweaks not yet scripted
- - https://www.howtogeek.com/356087/how-to-automatically-enable-windows-10s-dark-theme-at-night/
 - Install Office 365
 - Install Adobe CC
 - Login to Apps
+
+### Tweaks not yet scripted
+ - https://www.howtogeek.com/356087/how-to-automatically-enable-windows-10s-dark-theme-at-night/
