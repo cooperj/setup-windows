@@ -52,8 +52,11 @@ Function InstallVSCodeExt {
     "ms-python.python",
     "ms-vscode-remote.remote-wsl",
     "vscode-icons-team.vscode-icons",
-    "coenraads.bracket-pair-colorizer"
-
+    "icrawl.discord-vscode",
+    "wholroyd.jinja",
+    "ritwickdey.liveserver",
+    "octref.vetur"
+    
     $cmd = "code --list-extensions"
     Invoke-Expression $cmd -OutVariable output | Out-Null
     $installed = $output -split "\s"

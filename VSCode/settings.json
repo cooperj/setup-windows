@@ -3,9 +3,11 @@
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "editor.accessibilitySupport": "off",
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "vscode-icons",
   "workbench.editor.highlightModifiedTabs": true,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active"
 }
