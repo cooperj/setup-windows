@@ -12,14 +12,12 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 
 - If you are downloading as a ZIP from GitHub **make sure to manually download the [Windows10Debloater](https://github.com/Sycnex/Windows10Debloater) submodule** and place the contents into the folder `Windows10Debloater`, you may also have to do this if you are running a `git clone` so check that the files are there before running script `1. Run Windows 10 Debloater`
 
-## Scripts included
+## Scripts
 
-- [x] 1. Run Windows 10 Debloater (Going to be trying [ShutUp10++](https://www.oo-software.com/en/shutup10) instead..)
-- [x] 2. Install Chocolatey **(Required for Scripts 3 and 4)**
-- [x] 3. Install Productivity Applications
-- [x] 4. Install and Configure VS Code
-- [x] 5. Configure Windows 10 Theme and Power Options
-- [x] 6. Configure User Accounts
+- [x] 0. Run Windows 10 Debloater (Going to be trying [ShutUp10++](https://www.oo-software.com/en/shutup10) instead..)
+- [x] 1. Install Chocolatey **(Required for Scripts 3 and 4)**
+- [x] 2. Install Productivity Applications
+- [x] 3. Install and Configure VS Code
 
 ## What is not included
 
