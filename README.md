@@ -14,7 +14,7 @@ Each script can be ran Ad hoc, and some things wont get installed automatically 
 
 ## Scripts included
 
-- [x] 1. Run Windows 10 Debloater
+- [x] 1. Run Windows 10 Debloater (Going to be trying [ShutUp10++](https://www.oo-software.com/en/shutup10) instead..)
 - [x] 2. Install Chocolatey **(Required for Scripts 3 and 4)**
 - [x] 3. Install Productivity Applications
 - [x] 4. Install and Configure VS Code

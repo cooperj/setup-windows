@@ -39,16 +39,13 @@ Start-Transcript -OutputDirectory "$LogFolder"
 Function InstallAppsWithChoco {
     Write-Host "Installing Applications..."
     $Apps = @(
-        "vivaldi",
         "7zip.install",
         "git",
         "git-lfs",
         "hashtab",
-        "microsoft-edge",
         "googlechrome", ,
         "firefox",
         "vlc",
-        "dotnetcore-sdk",
         "ffmpeg",
         "wget",
         "openssl.light",
@@ -68,13 +65,11 @@ Function InstallAppsWithChoco {
         "putty.install",
         "wireshark",
         "winpcap",
-        "microsoft-windows-terminal",
         "cpu-z.install",
         "gpu-z",
         "coretemp",
         "rufus",
         "sdformatter",
-        "virtualbox",
         "obs-studio",
         "arduino",
         "itunes",
@@ -84,7 +79,7 @@ Function InstallAppsWithChoco {
         "rsvg-convert",
         "python",
         "miktex",
-        "strawberryperl"
+        "xampp-80"
     )
     
     foreach ($app in $Apps) {
